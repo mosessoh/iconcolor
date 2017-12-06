@@ -2,7 +2,7 @@
 
 ![icon conversion](/assets/conversion.png)
 
-Walkthrough[[video]](https://youtu.be/rFnMdFkjpAE)
+[[video]](https://youtu.be/rFnMdFkjpAE)
 
 ## Introduction
 
