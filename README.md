@@ -4,23 +4,25 @@
 
 Walkthrough[[video]](https://youtu.be/rFnMdFkjpAE)
 
+## Introduction
+
 I created a model that learns how to turn outlines into stylish and colorful icons. Icon and logo design is difficult — expert human designers choose from line weights, colors, textures and shapes to create beautiful icons such as [these (I'm a big fan)](https://dribbble.com/yoga). But there seems to be a pattern to how each designer make their choices. So, I decided it would be interesting to try to train a model that learns a designer's style, and then takes any freely available icon outlines (e.g. from [the Noun Project](https://thenounproject.com/)), and color and style them exactly as how a designer would have completely automatically.
 
 The icon generator is a convolutional neural network called a U-Net that was trained on an icon set from [Smashicons](smashicons.com). I optimized the generator against the L1 loss and an adversarial loss under a Conditional Generative Adversarial Network (cGAN) setup.
 
-### Overview of approach
+## Overview of approach
 
 ![poster](/assets/poster.svg)
 
-### How to use
+## How to use
 
-##### Download pre-trained models
+### Download pre-trained models
 
 ```
 bash ./models/fetch_models.sh
 ```
 
-##### Inference
+### Inference
 
 ```
 python color_icon.py assets/demo.png
@@ -30,6 +32,6 @@ The `color_icon.py` file contains a script to load the pre-trained generator con
 
 ![output](/assets/output.jpg)
 
-##### Training
+### Training
 
 The `train_model.py` file contains the training script used to train the discriminator using `BCEWithLogitsLoss` and the generator against L1 and adversarial loss. The `model/outline2yellow_discriminator.pth` and `model/outline2yellow_generator_gan.pth` files contain a useful checkpoints so your discriminator and generator do not need to start from scratch.
