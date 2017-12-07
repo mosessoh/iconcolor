@@ -42,4 +42,4 @@ The `color_icon.py` file contains a script to load the pre-trained generator con
 
 ### Training
 
-The `train_model.py` file contains the training script used to train the discriminator using `BCEWithLogitsLoss` and the generator against L1 and adversarial loss. The `model/outline2yellow_discriminator.pth` and `model/outline2yellow_generator_gan.pth` files contain a useful checkpoints so your discriminator and generator do not need to start from scratch. Make sure to change `prod = False` at the top of `momo_imports.py` and `momo_utils.py`.
+The `train_model.py` file contains the training script used to train the discriminator using `BCEWithLogitsLoss` and the generator against L1 and adversarial loss. The `model/outline2yellow_discriminator.pth` and `model/outline2yellow_generator_gan.pth` files contain a useful checkpoints so your discriminator and generator do not need to start from scratch. 

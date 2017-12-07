@@ -1,10 +1,8 @@
 from momo_imports import *
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+from matplotlib import animation, rc
+from IPython.display import HTML
 USE_CUDA = torch.cuda.is_available()
-prod = True
-if not prod:
-    from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-    from matplotlib import animation, rc
-    from IPython.display import HTML
 
 class CentraliseImage(object):
     def __init__(self, output_size):
