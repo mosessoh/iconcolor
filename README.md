@@ -16,10 +16,18 @@ The icon generator is a convolutional neural network called a U-Net that was tra
 
 ## How to use
 
+### Clone the repo
+
+```
+git clone https://github.com/mosessoh/iconcolor
+```
+
 ### Download pre-trained models
 
 ```
-bash ./models/fetch_models.sh
+cd iconcolor
+cd models
+python fetch_models.py
 ```
 
 ### Inference
