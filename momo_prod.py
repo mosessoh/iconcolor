@@ -1,4 +1,5 @@
 from PIL import Image
+import time
 import numpy as np
 import torch
 import torch.nn as nn
@@ -104,13 +105,14 @@ def pred_single_image(img_path, model_class, checkpoint_path, img_out="assets/ou
     bg.paste(rgba_im,(0,0),rgba_im)
     if np.max(rgba_im.size) > 200:
         bg = transforms.Scale(200)(bg)
+    del rgba_im
     rgb_im = CentraliseImage(300)(bg)
     grayscale_im = rgb_im.convert("L")
     tfms = transforms.Compose([
         transforms.Scale(128),
         transforms.ToTensor()
     ])
-    preproc_original_image = Variable(tfms(grayscale_im).unsqueeze(0), requires_grad=False)
+    preproc_original_image = Variable(tfms(grayscale_im).unsqueeze(0), volatile=True)
     print("==> Initializing model...")
     generator = model_class()
     checkpoint = torch.load(checkpoint_path)
@@ -118,8 +120,11 @@ def pred_single_image(img_path, model_class, checkpoint_path, img_out="assets/ou
         print(f"Using {model_class} from epoch {checkpoint['epoch']} with loss {checkpoint['loss']}")
     generator.load_state_dict(checkpoint["model"])
     generator.eval()
+    del checkpoint
     print("==> Coloring icon...")
+    s = time.time()
     colored_image = generator(preproc_original_image)
+    print(f"==> Inference took {(time.time() - s):.2f}s")
     print("==> Creating JPG...")
     combined = torch.cat([tfms(rgb_im).unsqueeze(0),colored_image.data],dim=0)
     utils.save_image(combined, img_out)
