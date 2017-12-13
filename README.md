@@ -40,9 +40,9 @@ python fetch_models.py
 python color_icon.py assets/demo.png
 ```
 
-The `color_icon.py` file contains a script to load the pre-trained generator contained in `model/outline2yellow_generator_gan.pth` and use it to colorize an input icon. This is the generator trained against L1 and adversarial loss. If you're getting funky colorizations (the adversarial loss encourages the use of more vibrant colors), the weights for the L1-optimized generator are at `model/outline2yellow_generator.pth`. Note that the model expects a 1 x 1 x 128 x 128 input, and saves the output at `assets/output.png`. If your setup is correct, you should get the following (the left icon is from [IconBros](https://www.iconbros.com/) and the right icon is produced by our model):
+The `color_icon.py` file contains a script to load the pre-trained generator contained in `model/outline2yellow_generator_gan.pth` and use it to colorize an input icon. This is the generator trained against L1 and adversarial loss. If you're getting funky colorizations (the adversarial loss encourages the use of more vibrant colors), the weights for the L1-optimized generator are at `model/outline2yellow_generator.pth`. Note that the model expects a 1 x 1 x 128 x 128 input, and saves the output at `assets/output.png`. If your setup is correct, you should get the following (the outline icon is from [IconBros](https://www.iconbros.com/) and the colored icon is produced by our model):
 
-![output](/assets/output.jpg)
+![before and after](/assets/before_after.gif)
 
 ### Training
 
