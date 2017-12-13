@@ -1,3 +1,4 @@
 .DS_Store
 /models/*.pth
 /__pycache__/
+/prod/

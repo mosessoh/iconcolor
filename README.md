@@ -2,7 +2,7 @@
 
 ![icon conversion](/assets/conversion.png)
 
-[[video]](https://youtu.be/rFnMdFkjpAE)
+[[video]](https://youtu.be/rFnMdFkjpAE) [[medium post]](https://medium.com/@moses.soh/towards-automatic-icon-design-using-machine-learning-423cbe6710fe) [[poster]](#poster)
 
 ## Introduction
 
@@ -10,9 +10,13 @@ I created a model that learns how to turn outlines into stylish and colorful ico
 
 The icon generator is a convolutional neural network called a U-Net that was trained on an icon set from [Smashicons](smashicons.com). I optimized the generator against the L1 loss and an adversarial loss under a Conditional Generative Adversarial Network (cGAN) setup.
 
-## Overview of approach
+## <a id="poster"></a>Overview of approach
 
 ![poster](/assets/poster.svg)
+
+The poster above summarizes the technical approach of tis project. The image below showcases the performance of our best model on test set images from the Smashicon dataset.
+
+![test](/assets/test.png)
 
 ## How to use
 
@@ -42,4 +46,4 @@ The `color_icon.py` file contains a script to load the pre-trained generator con
 
 ### Training
 
-The `train_model.py` file contains the training script used to train the discriminator using `BCEWithLogitsLoss` and the generator against L1 and adversarial loss. The `model/outline2yellow_discriminator.pth` and `model/outline2yellow_generator_gan.pth` files contain a useful checkpoints so your discriminator and generator do not need to start from scratch. 
+The `train_model.py` file contains the training script used to train the discriminator using `BCEWithLogitsLoss` and the generator against L1 and adversarial loss. The `model/outline2yellow_discriminator.pth` and `model/outline2yellow_generator_gan.pth` files contain a useful checkpoints so your discriminator and generator do not need to start from scratch.
