@@ -6,11 +6,11 @@
 
 ## Introduction
 
-![before and after](/assets/before_after.gif)
-
 I created a model that learns how to turn outlines into stylish and colorful icons. Icon and logo design is difficult — expert human designers choose from line weights, colors, textures and shapes to create beautiful icons such as [these (I'm a big fan)](https://dribbble.com/yoga). But there seems to be a pattern to how each designer make their choices. So, I decided it would be interesting to try to train a model that learns a designer's style, and then takes any freely available icon outlines (e.g. from [the Noun Project](https://thenounproject.com/)), and color and style them exactly as how a designer would have completely automatically.
 
-The icon generator is a convolutional neural network called a U-Net that was trained on an icon set from [Smashicons](smashicons.com). I optimized the generator against the L1 loss and an adversarial loss under a Conditional Generative Adversarial Network (cGAN) setup.
+The icon generator is a convolutional neural network called a U-Net that was trained on an icon set from [Smashicons](smashicons.com). I optimized the generator against the L1 loss and an adversarial loss under a Conditional Generative Adversarial Network (cGAN) setup. A quick view of our results:
+
+![before and after](/assets/before_after.gif)
 
 ## <a id="poster"></a>Overview of approach
 
